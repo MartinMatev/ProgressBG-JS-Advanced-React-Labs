@@ -10,4 +10,8 @@ function outer(){
 }
 
 var foo = outer()
+foo();
+
+// infact, we've executed the inner function above
+// but because of the "closure", it has it local scope values in it:
 console.log(`foo: ${foo}`);
