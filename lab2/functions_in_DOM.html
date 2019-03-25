@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Functions in DOM</title>
+  <style type="text/css">
+    ul{
+      border: 2px solid green;
+    }
+    li{
+      list-style-type: none;
+      font-size: 2em;
+      border: 1px solid red;
+    }
+    li:hover{
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<ul class="test">
+  <li>One</li>
+  <li>Two</li>
+</ul>
+<hr>
+<div class="output"></div>
+
+
+<script type="text/javascript">
+  let ul = document.querySelector('.test');
+  let output = document.querySelector('.output');
+
+  let clickHandler = function(x){   
+    return function(e){
+      output.innerHTML = x;
+      output.innerHTML += e.target.innerHTML;
+    }
+  }
+
+  const x = 23;
+
+  ul.addEventListener('click', clickHandler(x) )
+
+</script>
+</body>
+</html>

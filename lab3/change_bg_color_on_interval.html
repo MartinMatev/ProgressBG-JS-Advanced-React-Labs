@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change BG color</title>
+  <style type="text/css">
+    .test{
+      width: 10em;
+      height: 10em;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="test"></div>
+  <button class="btn_start">Start color change</button>
+  <button class="btn_stop">Stop color change</button>
+
+
+  <script type="text/javascript">
+    // TASK: 
+    //  on .btn_start click => start changing div.test bg color with colors, with interval 1s.
+
+    let test = document.querySelector('.test');
+    let btn_start = document.querySelector('.btn_start');
+    let btn_stop = document.querySelector('.btn_stop');
+
+    let colors = ['red', 'green', 'blue'];
+    let intID;
+
+    btn_start.addEventListener('click', function(){
+      let i = 0;
+
+      intID = setInterval(function(){                    
+        let color = colors[i++ % colors.length];
+        test.style.backgroundColor = color; 
+
+      }, 1000)
+    })
+
+
+    btn_stop.addEventListener('click', function(){
+      clearInterval(intID)
+    })
+
+    
+  </script>
+</body>
+</html>
