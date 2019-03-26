@@ -1,0 +1,88 @@
+<html>
+<head>
+    <title>Objects Homework</title>
+    <style type="text/css">
+        h1, h2{
+            text-align: center;
+        }
+        span#environmentName{
+            color: red;
+            font-size: 25px;
+        }
+        span#loggerOutput{
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Objects Homework</h1>
+    <h2>useless logger implementation</h3>
+    <hr/>
+    <h3>Current environment is: 
+        <span id="environmentName"></span>
+    </h3>
+
+    <button id="consoleLog">Generate Log</button>
+    <button id="consoleDir">Generate Dir</button>
+
+    <p>Logger Output: <span id="loggerOutput"></span></p>
+
+    <!-- <script type="text/javascript" src="r.js"></script> -->
+    <sctipt type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></sctipt>
+    <script type="text/javascript">
+        var url = window.location;
+        var debugMode = url.protocol === 'file:' ? true : false;
+
+        // BEST LOGGER 2019!!11!
+        var logger = {
+            shouldLog: debugMode,
+            log(){
+                if (this.shouldLog){
+                    console.log(`I log() stuff: `);
+                    console.log([1, 2, 3]);
+                }
+            },
+            dir(){
+                if(this.shouldLog){
+                    console.dir(`I dir() stuff: `);
+                    console.dir([1, 2, 3])
+                }
+            },
+            infoText(logType){
+                let genericText = ' generated. Check browser console to make sure!';
+                return this.shouldLog ? logType + genericText : logType + ' NOT' + genericText;
+            }
+        };
+
+        var loggerVisualOutput = document.querySelector('#loggerOutput');      
+        let btnLog = document.querySelector('#consoleLog');
+        let btnDir = document.querySelector('#consoleDir');
+        
+        // generates text based on what is passed, to the html el. ID that is passed
+        function GenerateText(htmlID, text){
+            document.getElementById(htmlID).innerHTML = text;
+        }
+
+        // determines current environment name based on url
+        function determineEnv(){
+            var environmentName = debugMode ? 'DEBUG' : 'PROD';
+            GenerateText('environmentName', environmentName);
+        };      
+        window.onload = determineEnv;
+
+        // logs stuff, inform what the logger did/did not do
+        btnLog.addEventListener('click', function(){
+            logger.log();
+            GenerateText(loggerVisualOutput.id, logger.infoText('Console.log()'))
+        });
+
+        // dirs stuff, inform what the logger did/did not do
+        btnDir.addEventListener('click', function(){
+            logger.dir();
+            GenerateText(loggerVisualOutput.id, logger.infoText('Console.dir()'))
+        });
+
+    </script>
+    
+</body>
+</html>
