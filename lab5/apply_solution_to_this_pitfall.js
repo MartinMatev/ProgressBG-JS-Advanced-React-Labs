@@ -11,6 +11,10 @@ function Constructor(id) {
   };
 }
 
+// function.apply(thisArg, [argsArray])
+function.call(thisArg, arg1, arg2, ...)
+// 
+
 var obj1 = new Constructor(1);
 obj1.sayHello();
 obj1.sayHello(); 

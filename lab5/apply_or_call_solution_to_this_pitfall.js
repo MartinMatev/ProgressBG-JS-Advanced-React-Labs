@@ -6,10 +6,12 @@ function Constructor(id) {
     this.saidHello++;
   };
   this.sayHello = function() {
-    __sayHello();
+    __sayHello.apply(this);
+    // __sayHello.call(this);
     console.log(`this.saidHello: ${this.saidHello}`);
   };
 }
+
 
 var obj1 = new Constructor(1);
 obj1.sayHello();

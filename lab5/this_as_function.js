@@ -1,10 +1,9 @@
-function outer(){
-  
-  // TODO: check if 'this' variable is global or local
-  console.log(this);
+function outer(){  
+  let THIS = 5;
+  console.log(THIS);
 
   function inner(){
-    console.log(this);
+    console.log(THIS);
   }
 
   return {
@@ -12,6 +11,7 @@ function outer(){
   }
 }
 
+let THIS = 99;
 
 let obj = outer();
 obj.method1();
