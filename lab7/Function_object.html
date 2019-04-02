@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Function Object</title>
+</head>
+<body>
+  <script type="text/javascript">
+    let foo = function(){
+      console.log(`I'm foo`);
+    }
+
+    console.dir(foo);
+
+
+    function argumentsDemo(){
+      // Function.prototype.arguments
+
+      // TASK: define function sum(), which returns the sum of varibale number of arguments
+      function sum(){
+        let sum = 0;
+
+        console.dir(arguments);
+        for(let i = 0; i<arguments.length; i += 1){
+          sum += arguments[i]
+        }
+
+        return sum
+      }
+
+      console.log( sum(2,3) );    // 5
+      console.log( sum(2,3,4) );  // 9
+    }  
+
+    argumentsDemo();  
+  </script>
+</body>
+</html>

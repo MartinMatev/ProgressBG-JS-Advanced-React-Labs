@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arrow Function</title>
+</head>
+<body>
+  <ul class="item_wrapper">
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+  <!-- <button class="item_btn">Show Item Text</button> -->
+
+  <script type="text/javascript">
+    // TASK: on li.click() log in console li.innerText 
+    let item_wrapper = document.querySelector('.item_wrapper')
+
+    // item_wrapper.addEventListener('click', function(e){
+    //   console.log(e.target.innerText);
+    // })
+
+    item_wrapper.addEventListener('click', e => {console.log(e.target.innerText)} )
+
+
+  </script>
+</body>
+</html>
