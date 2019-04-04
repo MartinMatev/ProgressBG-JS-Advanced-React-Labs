@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Function Methods</title>
+</head>
+<body>
+  <h1>Items list</h1>
+  <ul class="ul_wrapper">
+    <li tabindex="1">Item 1</li>
+    <li tabindex="2">Item 2</li>
+    <li tabindex="3">Item 3</li>
+  </ul>
+
+  <div class="form_wrapper">
+    <label>name: <input type="text" name=""></label>
+    <label>pass: <input type="password" name=""></label>
+  </div>
+
+  <button class="items_btn">DO something with Item</button>
+  <script type="text/javascript">
+    // TASK 1: define items_btn.onclick event, so that it will display in console the innerText of the item (li) being on focus
+    // TASK 2: when a input elemnt is on focus => log in console the element type attribute value
+    // Task 3: 
+    let itemFunctions = {
+      'upper': function(str){        
+        return str.toUpperCase();
+      },
+      'lower': function(){
+        console.log(this.innerText.toLowerCase());
+      },
+    }
+
+    // DOM cache:
+    let items_btn = document.querySelector('.items_btn');
+    let form_wrapper = document.querySelector('.form_wrapper');
+    let ul_wrapper = document.querySelector('.ul_wrapper');
+
+    items_btn.addEventListener('click', function(){
+      console.log(`click`);
+    })
+
+    form_wrapper.addEventListener('focusin', function(event){
+      console.dir(event.target.type);
+    })
+
+    ul_wrapper.addEventListener('focusin', function(event){
+      let itemText = event.target.innerText  
+      console.log(`item UpperCased: ${ itemFunctions.upper(itemText) }`);
+    })
+
+    ul_wrapper.addEventListener('click', function(event){
+      // console.dir(this);
+
+      // Task 4: calll itemFunctions.lower() with 'this' li item
+      itemFunctions.lower.call(event.target)
+    })
+  </script>
+</body>
+</html>

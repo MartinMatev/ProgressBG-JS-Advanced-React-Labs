@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Recursion</title>
+</head>
+<body>
+  <ul>
+    <li>Item</li>
+    <li>Item</li>
+    <li class="red">Make me red</li>
+    <li>Item
+      <ul>
+        <li class="red">Make me red, too</li>
+        <ol >
+          <li>Make me red</li>
+          <li>Make me <span class="red">make me red</span> red</li>
+        </ol>
+      </ul>
+    </li>
+    <li>Item</li>
+  </ul>
+
+  <script type="text/javascript">
+    function colorInRed(el){
+      // do what you need with the element
+      if(el.className == 'red'){
+        el.style.backgroundColor = "red"  
+      }
+
+      // get el childred 
+      let children = el.children
+
+      // make the same with the childer
+      for(let i=0; i<children.length; i++){
+        colorInRed(children[i])
+      }
+
+    }
+
+
+    colorInRed(document.body)
+  </script>
+</body>
+</html>
