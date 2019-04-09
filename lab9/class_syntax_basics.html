@@ -5,20 +5,54 @@
 </head>
 <body>
   <script type="text/javascript">
-    class Person{
-      x = 3;
+    class Person{ 
+      // fields declaration syntax:
+      name = "Anounymous";
+      age = 100;
 
-      // console.log(x);
-    }
-    console.dir(Person);
+      constructor(name, age){        
+        this.name = name;
+        this.age = age;
+        Person.counter();
+      }
 
-    function foo(){
-      "use strict"
-      
-      x = 3;
-      console.log(x);
+      static counter(){
+        Person.count++;
+        console.log(`${Person.count} was created!`);
+      }
+
+      greet(){
+        console.log(`I'm ${this.name}`);
+      }
     }
-    console.dir(foo);
+
+    Person.count = 0;
+
+    let p1 = new Person();
+    // let p2 = new Person('Maria', 42);
+    
+    console.log(p1);
+
+
+
+
+
+
+
+
+    // function Developer(name, age){
+    //   this.name = name;
+    //   this.age = age;
+    // }
+    // Developer.prototype.greet = function(){
+    //   console.log(`I'm ${this.name}`);
+    // }
+
+   
+    // let d1 = new Developer('Maria', 42);
+
+    // console.dir(Person);
+    // console.dir(Developer);
   </script>
 </body>
 </html>

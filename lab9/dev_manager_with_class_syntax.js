@@ -1,56 +1,43 @@
-// Person constructor
-let Person = function(name, age){
-    this.name = name;
-    this.age = age;
+class Person{
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    greet() {
+        console.log(`Hi, I'm ${this.name} and I'm ${this.age} years old`);
+    }
 }
 
-Person.prototype.greet = function() {
-    console.log(`Hi, I'm ${this.name} and I'm ${this.age} years old`);
-};
+class Manager extends Person{
+    constructor(name, age, managees){
+        super(name, age);
+        this.managees = managees;
+    }
 
-// Manager constructor
-let Manager = function(name, age, managees){   
-    Person.call(this, name, age)
-    this.managees = managees;
+    greet(){
+        // Call the base function that we overrode.
+        super.greet();
+
+        let manageesNames = '';
+        this.managees.forEach(function(element) {
+            manageesNames += element.name + ', ';
+        });
+        
+        console.log('I manage ' + manageesNames);
+    }
 }
-Manager.prototype = Object.create(Person.prototype)
 
-// Override Persons's greet() function
-Manager.prototype.greet = function() {
-    // Call the base function that we overrode.
-    Person.prototype.greet.call(this);
+class Developer extends Person{
+    constructor(name, age, skillset){      
+        super(name, age)
+        this.skillset = skillset;
+    }
 
-
-    let manageesNames = '';
-    this.managees.forEach(function(element) {
-        manageesNames += element.name + ', ';
-    });
-
-
-    // TODO: 
-    // this.managees.join() -  make it word
-    
-    console.log('I manage ' + );
+    greet() {
+        super.greet();
+        console.log('I know ' + this.skillset);
+    }
 }
-Manager.prototype.constructor = Manager;
-
-
-// Developer constructor
-let Developer = function(name, age, skillset){      
-    Person.call(this, name, age)
-    this.skillset = skillset;
-}
-Developer.prototype = Object.create(Person.prototype)
-
-// Override Persons's greet() function
-Developer.prototype.greet = function() {
-    
-    Person.prototype.greet.call(this);
-    console.log('I know ' + this.skillset);
-}
-Developer.prototype.constructor = Developer;
-
-
 
 let maria = new Developer('Maria Popova', 23, ['Python', 'Machine Learning']);
 let pesho = new Developer('Petar Petrov', 19, ['JavaScript', 'Angular', 'React', 'Vue']);

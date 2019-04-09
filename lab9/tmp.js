@@ -1,17 +1,11 @@
-"use strict"
-
-// TODO: update presentation with "strict" mode demo for class and function
-
-class Person{
-  // x = 3;
-
-  // console.log(x);
-}
-console.dir(Person);
-
-function foo(){  
-  
-  x = 3;
-  console.log(x);
-}
-console.dir(foo);
+var Person = /** @class */ (function () {
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.greet = function () {
+        console.log("I'm " + this.name);
+    };
+    return Person;
+}());
+var p1 = new Person('Pesho', 23);
