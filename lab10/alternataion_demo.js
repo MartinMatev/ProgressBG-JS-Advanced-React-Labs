@@ -1,9 +1,13 @@
-let str = `a(d`;
+// NB: this is not example of good practice for grouping regex. Why? => check next slides
+var re = /\b(straw|rasp)?berries/;
+var strings = [
+  'Icecream with strawhfdsfjdshfjdshf? No!',
+  'Icecream with strawberries? Yes!',
+  'Icecream with raspberries? Yes!',
+  'Icecream with rasberries? No!',
+  'Icecream with berries? Yes!',
+]
 
-// TODO: update presentation with alternation least binding
-let re = /a[b(|)c]d/g;
-// let re = /\b(b.+?b)|(a.+?a)\b/g;
-
-let res = str.match(re);
-
-console.log(res);
+strings.forEach(str=> str.match(re) ?
+  console.log(`${str} YES! YES!`) : console.log(`${str} NO! NO!`)
+)
