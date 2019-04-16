@@ -1,24 +1,22 @@
 // \w === [a-zA-Z0-9_]
+// \W === [^a-zA-Z0-9_]
 var arr_str = [
-  `AdA`,   // Yes     
-  `mAdA`,  // No    
-  `_AdA`,  // NO   
-  `-AdA`,  // Yes   
-  `!AdA!`,  // Yes   
-  `!AdA1`,  // No   
+  `Lorem ipsum dolor sit amet,consectetur adipisicing `
 ] ; 
 
-var re = /\bAdA\b/;  
+console.log( arr_str[0].split(' ').length );
+
+
+var re = /\ba/g;  
 
 // do the test:
 function regexTest(str){
-  if ( re.test(str) ){
-    console.log(`YES`);
-  }else{
-    console.log(`NO`);
-  }
+  
 
 }
-arr_str.forEach(regexTest)
+arr_str.forEach(str=>{
+  let res = str.match(re);
+  console.dir(res);
+})
 
 // str.match(//)
