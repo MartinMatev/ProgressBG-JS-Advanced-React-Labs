@@ -1,6 +1,4 @@
-import { foo, PI, aux} from "./moduleA.mjs";
+import { foo, PI} from "./moduleA.mjs";
 
 foo()
 console.log(`PI=${PI}`);
-
-aux();

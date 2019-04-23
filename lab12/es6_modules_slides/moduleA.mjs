@@ -1,4 +1,4 @@
-export function aux(){
+function aux(){
   console.log(`I'm aux`);
 }
 
