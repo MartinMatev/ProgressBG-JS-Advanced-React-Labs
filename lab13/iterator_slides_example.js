@@ -3,10 +3,16 @@ function makeIterator(array) {
 
     return {
        next: function() {
-          // TODO: make it work 
-          return index < array.length && array[index]%2==0 ?
-            array[index++]:
-            false;
+          // TODO: make it work
+          if(index < array.length){
+            if(array[index]%2==0){
+              return array[index++]              
+            }else{
+              index++;
+            }
+          }else{
+            return false
+          }
        }
     };
 };
