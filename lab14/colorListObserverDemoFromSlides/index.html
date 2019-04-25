@@ -41,8 +41,7 @@
         o.update = function(letter){
           console.log(`letter in observer: ${letter}`);
           console.log(`o.innerText[0]: ${o.innerText[0]}`);
-          // TODO: make example with compiled regex
-          if(o.innerText.match(/^letter/)){
+          if(o.innerText[0].toLowerCase() === letter.toLowerCase()){
             o.style.color = '#F00';
           }else{
             o.style.color = '#999';
