@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Observer Use case</title>
+</head>
+<body>
+
+<button id="notifyAllBtn">notify All</button>
+<script type="text/javascript" src="observerPattern.js"></script>
+<script type="text/javascript" src="observerUseCase.js"></script>
+<script type="text/javascript">
+  let notifyAllBtn = document.querySelector('#notifyAllBtn');
+  notifyAllBtn.addEventListener('click', function(){
+    xCompany.notifyObservers();
+  })
+</script>
+</body>
+</html>

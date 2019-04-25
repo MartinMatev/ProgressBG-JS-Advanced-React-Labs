@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color list demo</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <div class="observerWrapper">
+    <div class="subjectWrapper">
+      <label>Select letter:</label>
+      <select class="subject">
+        <option value="a">a</option>
+        <option value="o">o</option>
+        <option value="e">e</option>
+        <option value="i">i</option>
+      </select>
+    </div>
+    <ul class="observers">
+      <li>orchidea</li>
+      <li>astronaut</li>
+      <li>origami</li>
+      <li>Argentina</li>
+      <li>rocket</li>
+      <li>ontology</li>
+      <li>Einstein</li>
+    </ul>
+  </div>
+
+  <script type="text/javascript" src="observerPattern.js"></script>
+  <script type="text/javascript">
+    // create subject:
+    let subject = new Subject();
+    let subjectEl = document.querySelector('.subject');
+    // create observers:
+    let liNodes = document.querySelectorAll('ul>li');
+    subject.addObserver(liNodes);
+    
+
+    function observersAttachUpdate(){
+      subject.observerList.forEach(o=>{
+        o.update = function(letter){
+          console.log(`letter in observer: ${letter}`);
+          console.log(`o.innerText[0]: ${o.innerText[0]}`);
+          // TODO: make example with compiled regex
+          if(o.innerText.match(/^letter/)){
+            o.style.color = '#F00';
+          }else{
+            o.style.color = '#999';
+          }
+        }
+      })
+    }
+
+    observersAttachUpdate();
+
+    subjectEl.addEventListener('change',function(e){
+      // console.dir(e);
+      let letter = subjectEl.selectedOptions[0].innerText;
+      console.log(`letter in change Event: ${letter}`);
+      subject.notifyObservers(letter); 
+    }) 
+
+    
+
+
+
+
+  </script>
+</body>
+</html>
