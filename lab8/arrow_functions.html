@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+  let Person = function (name, age){
+    this.name = name;
+    this.age = age;
+  }
+  Person.prototype.getName = function(){
+    return this.name
+  }
+  Person.prototype.getAge = ()=> this.age;
+
+  let pehso = new Person('Pesho', 23);
+
+  console.log(pehso.getName()); // Pesho
+  console.log(pehso.getAge()); // 23
+</script>
+</body>
+</html>

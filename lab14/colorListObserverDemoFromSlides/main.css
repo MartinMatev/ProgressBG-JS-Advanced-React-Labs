@@ -1,0 +1,31 @@
+
+body{
+  font-size: 2em;
+}
+.observerWrapper{
+  width: 10em;
+  margin: 3em;
+  border: 1px solid #999;
+}
+.subjectWrapper{
+  height: 2em;
+  margin: .5em 0 0 0;
+  text-align: center;
+  border-bottom: 1px dotted #999;
+}
+.subjectWrapper>label{
+  display: inline-bwlock;
+  /*width: 100%;*/
+  /*height: 3em;*/
+}
+.subjectWrapper>select{
+  width: 3em;
+  font-size: 1em;
+}
+ul{
+  margin: 0;
+}
+li{
+  list-style-type: none;
+  padding: .3em 0 0 .5em;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Class Syntax</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  class Animal{
+    
+
+    constructor(name, food) {
+      this.name = name;
+      this.food = food;
+      Animal.count+=1;
+    }
+
+    eat(){
+      console.log(`I'm ${this.name} and I'm eating ${this.food}`);
+    }
+
+    static countAnimals(){
+      return Animal.count;
+    }
+  }
+
+  class Cat extends Animal{
+    constructor(){
+      super();
+    }
+  }
+
+  Animal.count = 0;
+  let tom = new Animal('Tom', 'meat');
+  let jerry = new Animal('Jerry', 'cheese');
+  tom.eat();  
+
+  console.log(Animal.countAnimals());
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <script type="text/javascript">
+    function divideInt(a,b) {
+        if( b === 0 ){
+            throw new Error("Can not divide by zero");
+            // console.log(`Attempt to divide by zero`);
+            // return;
+        }else{
+          return Math.trunc(a/b)
+        }
+    }
+
+    // TASK: function divideInt, which will trow error "Can not divide by zero"
+    divideInt(7,0); // Error: Can not divide by zero
+    console.log(`END`);
+  </script>
+</body>
+</html>
