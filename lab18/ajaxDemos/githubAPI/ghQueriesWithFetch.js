@@ -1,4 +1,16 @@
-// TASK: implement same functionality with promises
+// TASK: implement same functionality with fetch
+// TODO: send as HW
+function fetchData(url){
+  fetch(url)
+    .then( response => response.json() )// get user data
+    .then( data =>{
+      // https://api.github.com/users/WWWCourses/repos
+      fetch(data.repos_url)
+        .then( response => response.json() )
+        .then( data=>console.dir(data) )
+    } )
+    .then( a=>console.dir(a) );
+}
 function printNow(){
   let now = new Date();
   console.log(`${now.getMinutes()}:${now.getSeconds()}:${now.getMilliseconds()}`);  
@@ -28,10 +40,5 @@ let url = 'https://api.github.com/users/WWWCourses';
 let output = document.querySelector('.output');
 
 ghBtn.addEventListener('click', function(){
-  printNow();
-  // get user data
-  xhrSyncAJAXcall(url, processData);
-  
-  printNow();
-  console.log(`data: ${data}`);
+  fetchData(url) 
 })
