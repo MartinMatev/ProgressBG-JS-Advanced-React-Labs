@@ -1,6 +1,6 @@
 "use strict";
 
-var users = ['Maria', 'Pesho', 'Asen'];
+var users = ['Maria', 'Pesho', 'Asen', 'George'];
 
 var App = function App() {
   return React.createElement(UsersList, {
@@ -8,8 +8,8 @@ var App = function App() {
   });
 };
 
-var UsersList = function(_ref) {
-  var list = _ref.list;
+var UsersList = function(obj) {
+  var list = obj.list;
 
   return React.createElement("ul", null, list.map( item =>
     React.createElement("li", {
