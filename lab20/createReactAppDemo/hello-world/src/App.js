@@ -12,9 +12,9 @@ import logo from './logo.svg';
 
 
 function App() {
-  return React.createElement("div", {
-    className: "App"
-  }, React.createElement("h1", null, "Hello World"));
+  return React.createElement("div", {className: "App"}, 
+    React.createElement("h1", null, 
+      React.createElement('span',null,'Hello')));
 }
 
 export default App;
