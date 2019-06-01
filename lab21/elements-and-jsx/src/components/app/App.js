@@ -1,15 +1,14 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
 import './App.css';
-
+import { FunctionComponent, ClassCompoenet } from "../demoForComponents/index";
 
 function App() {
-  return <div><FunctionComponent msg="Function Component is rendered"/></div>;
+  return (<div>
+    <FunctionComponent/>
+    <ClassCompoenet/>
+    </div>);
 }
 
 
-function FunctionComponent(props) {
-  return <h1>{props.msg}</h1>;
-}
 
 export default App;
