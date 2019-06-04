@@ -31,7 +31,7 @@ class TodoList extends React.Component{
           <div>
             <h1>{this.props.title}</h1>
             <ul>
-              {/* TODO: send as HW to map */}
+              {/* Task: make Todo components to be dynamically generated, mapping each 'todos' element to <Todo> component */}
               <Todo title={this.state.todos[0].title}/>
               <Todo title={this.state.todos[1].title}/>
               <Todo title={this.state.todos[2].title}/>
