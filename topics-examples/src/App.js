@@ -9,7 +9,7 @@ function App(props) {
   return (
     <div className="App">
       <Header/>
-      <TodoList/>
+      <TodoList title="Heading of TODO LIST"/>
       <Footer/>
     </div>
   );
