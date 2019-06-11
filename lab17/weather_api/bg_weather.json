@@ -1,0 +1,10 @@
+{
+  'sofia': {
+    'temp': 5,
+    'wind': 2.4,
+  }
+  'plovdiv':{
+    'temp': 8,
+    'wind': 0.4,
+  }
+}

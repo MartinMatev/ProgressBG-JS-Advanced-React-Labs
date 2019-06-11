@@ -14,5 +14,24 @@
   </form>
   
   <script type="text/javascript" src="cookies.js"></script>
+  <script type="text/javascript">
+    let localStorage = window.localStorage;
+    
+    function getFromLocalStorage(name){
+      let value = localStorage.getItem(name);
+
+      if(value){
+        return value;
+      }else{
+        return false;
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function(){
+      let color = getFromLocalStorage('color');
+      if(color){
+        document.body.style.backgroundColor = color;
+      }
+    });
+  </script>
 </body>
 </html>

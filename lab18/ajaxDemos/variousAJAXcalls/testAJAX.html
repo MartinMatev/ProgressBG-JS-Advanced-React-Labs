@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AJAX demos</title>
+  <style type="text/css">
+    ul,li{
+      list-style-type: none;
+      margin: 0; padding: 0;
+    }
+    ul{
+      padding: 1em;
+      border: 1px solid blue;
+    }
+    li{
+      border: 1px solid red;
+    }
+    li:hover{
+      cursor: pointer;
+    }
+  </style>
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+  <ul class="AJAXcallWrapper">
+    <li id="xhrAJAX">AJAX by XHR object</li>
+    <li id="jQueryAJAX">AJAX by jQuery</li>
+    <li id="fetchAJAX">AJAX by fetch</li>
+  </ul>
+  <div class="output"></div>
+
+  <script type="text/javascript" src="AJAXlib.js"></script>
+</body>
+</html>
